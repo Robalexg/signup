@@ -1,0 +1,11 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-image: url('../public/images/bg-desktop.png');
+    background-color: hsl(0, 100%, 74%);
+}
