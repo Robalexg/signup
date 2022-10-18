@@ -9,3 +9,19 @@ body{
     background-image: url('../public/images/bg-desktop.png');
     background-color: hsl(0, 100%, 74%);
 }
+
+.app--container{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    height: 100vh;
+}
+
+@media (max-width: 1025px ) {
+    body{
+    background-image: url('../public/images/bg-mobile.png');
+    }
+    .app--container{
+        flex-flow: column nowrap;
+    }
+}
