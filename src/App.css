@@ -21,9 +21,14 @@ body{
     font-weight: 300;
 }
 
+.red-text{
+    color: hsl(0, 100%, 74%);
+}
+
 @media (max-width: 1025px ) {
     body{
     background-image: url('../public/images/bg-mobile.png');
+    padding-top: 4em;
     }
     .app--container{
         flex-flow: column nowrap;
