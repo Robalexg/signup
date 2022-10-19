@@ -15,7 +15,7 @@ const Signup = () => {
         },
         email:{
             error: false,
-            errorMsg: 'invalid email',
+            errorMsg: 'Looks like this is not an email',
             value: ''
         },
         pass: {
@@ -49,16 +49,58 @@ const Signup = () => {
 
 
     const handleSubmit = (e) => {
+
         e.preventDefault()
-        setUser((prevUser) => {
-            return {
-                ...prevUser,
-                first: {
-                    ...prevUser.first,
-                    error: true
+
+        if(!user.first.value){
+            setUser(prevUser => (
+                 {
+                    ...prevUser,
+                    first: {
+                        ...prevUser.first,
+                        error: true
+                    }
                 }
-            }
-        })
+            )) 
+        }
+
+        if(!user.last.value){
+            setUser(prevUser => (
+                {
+                   ...prevUser,
+                   last: {
+                       ...prevUser.last,
+                       error: true
+                   }
+               }
+           )) 
+        }
+
+        if(!user.email.value){
+            setUser(prevUser => (
+                {
+                   ...prevUser,
+                   email: {
+                       ...prevUser.email,
+                       error: true
+                   }
+               }
+           )) 
+        }
+
+        if(!user.pass.value){
+            setUser(prevUser => (
+                {
+                   ...prevUser,
+                   pass: {
+                       ...prevUser.pass,
+                       error: true
+                   }
+               }
+           )) 
+        }
+
+
 
     }
 
@@ -101,24 +143,25 @@ const Signup = () => {
                     placeholder='Email Address'
                     value={user.email.value}
                     className = {user.email.error ?  'signup--error' : ''}
-
-
-
                 />
+                <small>{user.email.error ? user.email.errorMsg : ''}</small>
+
                 <input 
                     name='pass' 
                     onChange={handleChange} 
-                    type="text" 
+                    type="password" 
                     placeholder='Password'
                     value={user.pass.value}
                     className = {user.pass.error ?  'signup--error' : ''}
 
 
                 />
+                <small>{user.pass.error ? user.pass.errorMsg : ''}</small>
+
                 <input 
                     name='confirmPass' 
                     onChange={handleChange} 
-                    type="text" 
+                    type="password"  
                     placeholder='Confirm Password'
                     value={user.confirmPass.value}
                     className = {user.confirmPass.error ?  'signup--error' : ''}
