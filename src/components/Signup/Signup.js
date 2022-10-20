@@ -47,7 +47,6 @@ const Signup = () => {
 
     }
 
-
     const handleSubmit = (e) => {
 
         e.preventDefault()
@@ -100,6 +99,17 @@ const Signup = () => {
            )) 
         }
 
+        if(user.pass.value != user.confirmPass.value){
+            setUser(prevUser => (
+                {
+                   ...prevUser,
+                   confirmPass: {
+                       ...prevUser.confirmPass,
+                       error: true
+                   }
+               }
+           )) 
+        }
 
 
     }
@@ -124,7 +134,7 @@ const Signup = () => {
                     className = {user.first.error ?  'signup--error' : ''}
 
                 />
-                <small>{user.first.error ? user.first.errorMsg : ''}</small>
+                <small className='signup--errorText'>{user.first.error ? user.first.errorMsg : ''}</small>
                 <input 
                     name='last' 
                     onChange={handleChange} 
@@ -134,7 +144,7 @@ const Signup = () => {
                     className = {user.last.error ?  'signup--error' : ''}
 
                 />
-                <small>{user.last.error ? user.last.errorMsg : ''}</small>
+                <small className='signup--errorText'>{user.last.error ? user.last.errorMsg : ''}</small>
 
                 <input 
                     name='email' 
@@ -144,7 +154,7 @@ const Signup = () => {
                     value={user.email.value}
                     className = {user.email.error ?  'signup--error' : ''}
                 />
-                <small>{user.email.error ? user.email.errorMsg : ''}</small>
+                <small className='signup--errorText'>{user.email.error ? user.email.errorMsg : ''}</small>
 
                 <input 
                     name='pass' 
@@ -156,7 +166,7 @@ const Signup = () => {
 
 
                 />
-                <small>{user.pass.error ? user.pass.errorMsg : ''}</small>
+                <small className='signup--errorText'>{user.pass.error ? user.pass.errorMsg : ''}</small>
 
                 <input 
                     name='confirmPass' 
@@ -166,7 +176,10 @@ const Signup = () => {
                     value={user.confirmPass.value}
                     className = {user.confirmPass.error ?  'signup--error' : ''}
 
+
                 />
+                <small className='signup--errorText'>{user.confirmPass.error ? user.confirmPass.errorMsg : ''}</small>
+
                 <button onClick={handleSubmit} className='signup--button' >CLAIM YOUR FREE TRIAL</button>
                 <p className='signup--footer' >
                     By clicking the button, you are agreeing to our <a href='#' className='red-text'>Terms 
