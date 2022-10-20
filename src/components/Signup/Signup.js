@@ -99,7 +99,7 @@ const Signup = () => {
            )) 
         }
 
-        if(user.pass.value != user.confirmPass.value){
+        if(user.pass.value !== user.confirmPass.value){
             setUser(prevUser => (
                 {
                    ...prevUser,
@@ -182,7 +182,7 @@ const Signup = () => {
 
                 <button onClick={handleSubmit} className='signup--button' >CLAIM YOUR FREE TRIAL</button>
                 <p className='signup--footer' >
-                    By clicking the button, you are agreeing to our <a href='#' className='red-text'>Terms 
+                    By clicking the button, you are agreeing to our <a href='/' className='red-text'>Terms 
                     and Services</a>
                 </p>
             </form>
